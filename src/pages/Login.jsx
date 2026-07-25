@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import Input from "../components/Input";
+import Button from "../components/Button";
+import Card from "../components/Card";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,33 +19,35 @@ function Login() {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h1>Welcome Back!</h1>
-        <p>Login to access your dashboard</p>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <Card>
+        <h1 className="text-3xl font-bold text-center mb-2">
+          Welcome Back!
+        </h1>
+
+        <p className="text-center text-gray-500 mb-6">
+          Login to access your dashboard
+        </p>
 
         <form onSubmit={handleLogin}>
-          <label>Email</label>
-
-          <input
+          <Input
             type="email"
             placeholder="Enter Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          <label>Password</label>
-
-          <input
+          <Input
             type="password"
             placeholder="Enter Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button type="submit">Sign In</button>
+          <Button text="Sign In" 
+          type="submit" />
         </form>
-      </div>
+      </Card>
     </div>
   );
 }
