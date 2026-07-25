@@ -1,4 +1,4 @@
-       import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -11,12 +11,8 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
     <Routes>
-      {/* Login Page (Default) */}
-      <Route path="/" element={<Login />} />
-
-      {/* Pages with Navbar */}
       <Route
-        path="/home"
+        path="/"
         element={
           <>
             <Navbar />
@@ -24,6 +20,8 @@ function App() {
           </>
         }
       />
+
+      <Route path="/login" element={<Login />} />
 
       <Route
         path="/about"
@@ -55,7 +53,6 @@ function App() {
         }
       />
 
-      {/* Dashboard */}
       <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
   );
